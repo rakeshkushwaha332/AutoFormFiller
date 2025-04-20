@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Form Filler - Settings</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    
+    h1, h2, h3 {
+      color: #4285f4;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    button:hover {
+      background-color: #3367d6;
+    }
+    
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .dynamic-list {
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background-color: white;
+    }
+    
+    .add-btn {
+      margin-bottom: 20px;
+    }
+    
+    .delete-btn {
+      background-color: #db4437;
+      margin-top: 10px;
+    }
+    
+    .delete-btn:hover {
+      background-color: #c53929;
+    }
+    
+    .saved-notice {
+      background-color: #e6f4ea;
+      color: #137333;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;
+      margin-bottom: 20px;
+    }
+    
+    .checkbox-container {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Auto Form Filler Settings</h1>
+  <div id="savedNotice" class="saved-notice">Your information has been saved successfully!</div>
+  
+  <form id="profileForm">
+    <!-- Personal Information Section -->
+    <div class="section">
+      <h2>Personal Information</h2>
+      
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName">
+      </div>
+      
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName">
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+      </div>
+      
+      <div class="form-group">
+        <label for="confirmEmail">Confirm Email:</label>
+        <input type="email" id="confirmEmail" name="confirmEmail">
+      </div>
+      
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number (with +91 prefix for India):</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91 1234567890">
+      </div>
+      
+      <div class="form-group">
+        <label for="messageToHiringTeam">Message to Hiring Team:</label>
+        <textarea id="messageToHiringTeam" name="messageToHiringTeam"></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="resume">Resume Upload:</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+        <p id="currentResume"></p>
+      </div>
+    </div>
+    
+    <!-- Experience Section -->
+    <div class="section">
+      <h2>Work Experience</h2>
+      <div id="experienceContainer"></div>
+      <button type="button" id="addExperience" class="add-btn">Add Experience</button>
+    </div>
+    
+    <!-- Education Section -->
+    <div class="section">
+      <h2>Education</h2>
+      <div id="educationContainer"></div>
+      <button type="button" id="addEducation" class="add-btn">Add Education</button>
+    </div>
+    
+    <!-- Social Profiles Section -->
+    <div class="section">
+      <h2>Social Profiles</h2>
+      
+      <div class="form-group">
+        <label for="linkedin">LinkedIn:</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/yourprofile">
+      </div>
+      
+      <div class="form-group">
+        <label for="facebook">Facebook:</label>
+        <input type="url" id="facebook" name="facebook" placeholder="https://www.facebook.com/yourprofile">
+      </div>
+      
+      <div class="form-group">
+        <label for="twitter">X (Twitter):</label>
+        <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/yourhandle">
+      </div>
+      
+      <div class="form-group">
+        <label for="website">Personal Website:</label>
+        <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+      </div>
+    </div>
+    
+    <div class="actions">
+      <button type="submit" id="saveButton">Save Information</button>
+      <button type="button" id="clearButton">Clear All Data</button>
+    </div>
+  </form>
+  
+  <script src="options.js"></script>
+</body>
+</html> 
